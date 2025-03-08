@@ -36,13 +36,13 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run build
-
       - run: |
-          cd dist/ngx-voyage
+          cd projects/ngx-voyage
           git config user.email "mathieu.schnoor@gmail.com"
           git config user.name "Mathieu Schnoor"
           npm version from-git
+
+      - run: npm run build
 
       - uses: JS-DevTools/npm-publish@v3
         with:
