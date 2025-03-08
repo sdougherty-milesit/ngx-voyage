@@ -42,7 +42,7 @@ jobs:
           git config user.name "Mathieu Schnoor"
           npm version from-git
 
-      - run: npm run build
+      - run: npm run build:lib
 
       - uses: JS-DevTools/npm-publish@v3
         with:

@@ -18,7 +18,8 @@
   },
   "scripts": {
     "ng": "ng",
-    "build": "ng build ngx-voyage",
+    "build:lib": "ng build ngx-voyage",
+    "start:demo": "ng serve demo",
     "test": "ng test"
   },
   "private": false,
