@@ -34,15 +34,15 @@ jobs:
         with:
           node-version: "20"
 
-      - run: |
-          git config user.email "mathieu.schnoor@gmail.com"
-          git config user.name "Mathieu Schnoor"
-
-      - run: npm version from-git --prefix dist/ngx-voyage
-
       - run: npm ci
 
       - run: npm run build
+
+      - run: |
+          cd dist/ngx-voyage
+          git config user.email "mathieu.schnoor@gmail.com"
+          git config user.name "Mathieu Schnoor"
+          npm version from-git
 
       - uses: JS-DevTools/npm-publish@v3
         with:
