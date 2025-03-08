@@ -38,7 +38,7 @@ jobs:
           git config user.email "mathieu.schnoor@gmail.com"
           git config user.name "Mathieu Schnoor"
 
-      - run: npm version from-git
+      - run: npm version from-git --prefix dist/ngx-voyage
 
       - run: npm ci
 
