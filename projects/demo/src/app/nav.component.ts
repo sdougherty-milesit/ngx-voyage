@@ -9,17 +9,19 @@ import { routes } from "./app.routes";
     <div class="flex flex-col gap-3 py-3 px-5 ">
       @for (route of routes; track route.path) {
         <a
-          class="rounded-md px-3 py-2 text-nowrap"
+          class="rounded-md px-3 py-2 text-nowrap dark:text-gray-200"
           [routerLink]="route.path"
-          routerLinkActive="bg-gray-200"
+          routerLinkActive="bg-gray-200 dark:bg-gray-700"
           [routerLinkActiveOptions]="{ exact: true }"
           >{{ route.data!["name"] }}</a
         >
       }
 
-      <hr class="border-gray-300" />
+      <hr class="border-gray-300 dark:border-gray-600" />
 
-      <div class="pt-3 px-3 text-gray-600 flex gap-3 text-2xl">
+      <div
+        class="pt-3 px-3 text-gray-600 dark:text-gray-400 flex gap-3 text-2xl"
+      >
         <a
           href="https://github.com/mschn/ngx-voyage"
           target="_blank"

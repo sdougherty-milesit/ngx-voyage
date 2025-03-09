@@ -16,7 +16,7 @@ import { filesContentMock, filesMock } from "../mocks/files.mock";
         <h2 class="text-2xl">
           File Explorer Component for
           <a
-            class="text-blue-600"
+            class="text-blue-600 dark:text-blue-300"
             href="https://angular.dev/"
             target="_blank"
             rel="noopener noreferrer"
@@ -24,7 +24,7 @@ import { filesContentMock, filesMock } from "../mocks/files.mock";
           >
           and
           <a
-            class="text-blue-600"
+            class="text-blue-600 dark:text-blue-300"
             href="https://primeng.org/"
             target="_blank"
             rel="noopener noreferrer"
@@ -51,7 +51,7 @@ import { filesContentMock, filesMock } from "../mocks/files.mock";
           path="/home/voyage"
           [files]="files"
           (previewFile)="preview($event)"
-          styleClass="border border-gray-400 rounded-lg"
+          styleClass="border border-gray-400 dark:border-gray-500 rounded-lg"
         >
         </ngx-voyage>
       </div>
