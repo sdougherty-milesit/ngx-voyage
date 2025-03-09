@@ -10,11 +10,26 @@ import { filesContentMock, filesMock } from "../mocks/files.mock";
 @Component({
   selector: "app-home",
   template: `
-    <div class=" max-w-[40rem] mx-auto flex flex-col gap-10  ">
+    <div class=" max-w-[50rem] mx-auto flex flex-col gap-10  ">
       <div class="text-center flex flex-col gap-3 ">
         <h1 class="text-4xl font-semibold">ngx-voyage</h1>
         <h2 class="text-2xl">
-          File Explorer Component for Angular and PrimeNG
+          File Explorer Component for
+          <a
+            class="text-blue-600"
+            href="https://angular.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Angular</a
+          >
+          and
+          <a
+            class="text-blue-600"
+            href="https://primeng.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >PrimeNG</a
+          >
         </h2>
         <div class="flex gap-3 mx-auto">
           <p-button routerLink="/quickstart"
@@ -25,7 +40,7 @@ import { filesContentMock, filesMock } from "../mocks/files.mock";
             href="https://github.com/mschn/ngx-voyage"
             target="_blank"
             rel="noopener noreferrer"
-            class="p-button p-button-secondary"
+            class="p-button p-button-secondary p-button-outlined"
           >
             <i class="fa-brands fa-github text-xl"></i> Github
           </a>

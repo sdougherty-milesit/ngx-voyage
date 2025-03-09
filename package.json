@@ -18,6 +18,7 @@
   },
   "scripts": {
     "ng": "ng",
+    "start:lib": "ng build ngx-voyage --watch",
     "build:lib": "ng build ngx-voyage",
     "start:demo": "ng serve demo",
     "build:demo": "ng build demo",

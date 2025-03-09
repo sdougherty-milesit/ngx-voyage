@@ -11,6 +11,6 @@
   } @else if (isImage()) {
     <ngx-voyage-img [data]="data()"></ngx-voyage-img>
   } @else if (isText()) {
-    <ngx-voyage-text [data]="data()"></ngx-voyage-text>
+    <ngx-voyage-text [data]="data()" [name]="name()"></ngx-voyage-text>
   }
 </div>

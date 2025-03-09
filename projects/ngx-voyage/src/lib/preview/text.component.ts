@@ -1,21 +1,35 @@
-import { AfterViewInit, Component, input, signal } from '@angular/core';
+import { AfterViewInit, Component, input, signal } from "@angular/core";
+import {
+  getLanguageClass,
+  highlight,
+  highlightTypes,
+} from "../model/highlight";
 
 @Component({
-  selector: 'ngx-voyage-text',
+  selector: "ngx-voyage-text",
   template: ` <div
-    class="bg-white mx-auto max-w-[90vw] h-[90vh] overflow-y-auto p-3"
+    class="bg-white dark:bg-[#0d1117] mx-auto max-w-[90vw] h-[90vh] overflow-y-auto p-3 "
   >
-    <pre class="whitespace-pre-wrap text-sm">{{ text() }}</pre>
+    <pre
+      class="whitespace-pre-wrap text-s theme-github"
+    ><code class="hljs {{codeClass()}}">{{ text() }}</code></pre>
   </div>`,
 })
 export class TextComponent implements AfterViewInit {
   data = input.required<Blob>();
-  text = signal<string>('');
+  name = input.required<string>();
+  text = signal<string>("");
+  codeClass = signal("");
 
   ngAfterViewInit(): void {
     var reader = new FileReader();
     reader.onload = () => {
-      this.text.set(reader.result?.toString() ?? '');
+      this.text.set(reader.result?.toString() ?? "");
+      this.codeClass.set(getLanguageClass(this.name()));
+
+      setTimeout(() => {
+        highlight(this.name());
+      });
     };
     reader.readAsText(this.data());
   }
