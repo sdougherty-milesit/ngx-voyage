@@ -129,6 +129,7 @@
             "outputPath": "dist/demo",
             "index": "projects/demo/src/index.html",
             "browser": "projects/demo/src/main.ts",
+            "deployUrl": "/ngx-voyage/",
             "polyfills": [],
             "tsConfig": "projects/demo/tsconfig.app.json",
             "assets": [
