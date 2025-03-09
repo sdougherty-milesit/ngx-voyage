@@ -1,42 +1,28 @@
-import { Component } from "@angular/core";
+import { Component, model } from "@angular/core";
 import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { routes } from "./app.routes";
+import { NavComponent } from "./nav.component";
+import { DrawerModule } from "primeng/drawer";
+import { ButtonModule } from "primeng/button";
 
 @Component({
   selector: "app-root",
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, NavComponent, DrawerModule, ButtonModule],
   template: `
     <div class="flex gap-3 h-full w-full bg-gray-100">
-      <div class="flex flex-col gap-3 py-3 px-5 ">
-        @for (route of routes; track route.path) {
-          <a
-            class="rounded-md px-3 py-2 text-nowrap"
-            [routerLink]="route.path"
-            routerLinkActive="bg-gray-200"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >{{ route.data!["name"] }}</a
-          >
-        }
-
-        <hr class="border-gray-300" />
-
-        <div class="pt-3 px-3 text-gray-600 flex gap-3 text-2xl">
-          <a
-            href="https://github.com/mschn/ngx-voyage"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><i class="fa-brands fa-github"></i
-          ></a>
-
-          <a
-            href="https://www.npmjs.com/package/ngx-voyage"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><i class="fa-brands fa-npm"></i
-          ></a>
-        </div>
+      <div class="hidden md:block">
+        <app-nav></app-nav>
       </div>
+      <p-drawer [(visible)]="showMenu">
+        <app-nav></app-nav>
+      </p-drawer>
+
       <div class="container mx-auto p-3">
+        <div class="md:hidden ">
+          <p-button (click)="showMenu.set(true)" outlined="true"
+            ><i class="fa-solid fa-bars"></i
+          ></p-button>
+        </div>
         <router-outlet></router-outlet>
       </div>
     </div>
@@ -44,4 +30,5 @@ import { routes } from "./app.routes";
 })
 export class AppComponent {
   routes = routes;
+  showMenu = model(false);
 }
