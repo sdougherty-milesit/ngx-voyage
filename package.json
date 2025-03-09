@@ -20,6 +20,7 @@
     "ng": "ng",
     "build:lib": "ng build ngx-voyage",
     "start:demo": "ng serve demo",
+    "build:demo": "ng build demo",
     "test": "ng test"
   },
   "private": false,
