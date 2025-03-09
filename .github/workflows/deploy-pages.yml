@@ -31,7 +31,7 @@ jobs:
 
       - run: npm ci
       - run: npm run build:lib
-      - run: npm run build:demo
+      - run: npx ng build demo --base-href /ngx-voyage/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
