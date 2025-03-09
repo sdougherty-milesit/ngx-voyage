@@ -10,11 +10,11 @@ import { routes } from "./app.routes";
       <div class="flex flex-col gap-3 py-3 px-5 ">
         @for (route of routes; track route.path) {
           <a
-            class="rounded-md px-3 py-2"
+            class="rounded-md px-3 py-2 text-nowrap"
             [routerLink]="route.path"
             routerLinkActive="bg-gray-200"
             [routerLinkActiveOptions]="{ exact: true }"
-            >{{ route.title }}</a
+            >{{ route.data!["name"] }}</a
           >
         }
 
