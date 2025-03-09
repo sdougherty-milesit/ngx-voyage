@@ -6,8 +6,8 @@ import { routes } from "./app.routes";
   selector: "app-root",
   imports: [RouterOutlet, RouterLink, RouterLinkActive],
   template: `
-    <div class="flex gap-3 h-full w-full">
-      <div class="flex flex-col gap-3 py-3 px-5 bg-gray-100">
+    <div class="flex gap-3 h-full w-full bg-gray-100">
+      <div class="flex flex-col gap-3 py-3 px-5 ">
         @for (route of routes; track route.path) {
           <a
             class="rounded-md px-3 py-2"
@@ -18,23 +18,23 @@ import { routes } from "./app.routes";
           >
         }
 
-        <hr class="border-gray-400" />
+        <hr class="border-gray-300" />
 
-        <a
-          class="px-3 text-gray-600"
-          href="https://github.com/mschn/ngx-voyage"
-          target="_blank"
-          rel="noopener noreferrer"
-          ><i class="fa-brands fa-github text-xl"></i> Github</a
-        >
+        <div class="pt-3 px-3 text-gray-600 flex gap-3 text-2xl">
+          <a
+            href="https://github.com/mschn/ngx-voyage"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fa-brands fa-github"></i
+          ></a>
 
-        <a
-          class="px-3 text-gray-600"
-          href="https://www.npmjs.com/package/ngx-voyage"
-          target="_blank"
-          rel="noopener noreferrer"
-          ><i class="fa-brands fa-npm text-xl"></i> npm</a
-        >
+          <a
+            href="https://www.npmjs.com/package/ngx-voyage"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fa-brands fa-npm"></i
+          ></a>
+        </div>
       </div>
       <div class="container mx-auto p-3">
         <router-outlet></router-outlet>

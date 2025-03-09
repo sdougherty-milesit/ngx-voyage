@@ -1,4 +1,4 @@
-import { fileTypes } from './file-types';
+import { fileTypes } from "./file-types";
 
 export interface File {
   isDirectory: boolean;
@@ -10,7 +10,7 @@ export interface File {
   type?: string;
 }
 
-export type FileSortFields = 'name' | 'size' | 'modifiedDate' | 'type';
+export type FileSortFields = "name" | "size" | "modifiedDate" | "type";
 
 export function isFileEqual(f1: File, f2: File) {
   return (
@@ -23,33 +23,33 @@ export function isFileEqual(f1: File, f2: File) {
 }
 
 export function isFileSortField(
-  field?: string | null,
+  field?: string | null
 ): field is FileSortFields {
   return (
-    field === 'name' ||
-    field === 'size' ||
-    field === 'modifiedDate' ||
-    field === 'type'
+    field === "name" ||
+    field === "size" ||
+    field === "modifiedDate" ||
+    field === "type"
   );
 }
 
-export type FilePreviewOutput = { path: string; cb: (data: any) => void };
+export type FilePreviewOutput = { path: string; cb: (data: Blob) => void };
 
 export function getFileExtension(file: File) {
   return getExtension(file.name);
 }
 
 export function getExtension(name: string) {
-  if (!name.includes('.')) {
+  if (!name.includes(".")) {
     return undefined;
   }
-  return name.split('.').pop()?.toLowerCase();
+  return name.split(".").pop()?.toLowerCase();
 }
 
 export function sortFiles(
   files: File[],
   field?: FileSortFields,
-  order?: number,
+  order?: number
 ): File[] {
   if (field == undefined || order == undefined) {
     return files;
@@ -62,7 +62,7 @@ export function sortFiles(
     if (value1 == null && value2 != null) result = -1;
     else if (value1 != null && value2 == null) result = 1;
     else if (value1 == null && value2 == null) result = 0;
-    else if (typeof value1 === 'string' && typeof value2 === 'string')
+    else if (typeof value1 === "string" && typeof value2 === "string")
       result = value1.localeCompare(value2);
     else result = value1! < value2! ? -1 : value1! > value2! ? 1 : 0;
     return order * result;
@@ -71,11 +71,11 @@ export function sortFiles(
 
 export function addType(file: File) {
   if (file.isDirectory) {
-    file.type = 'FOLDER';
+    file.type = "FOLDER";
   } else {
     const ext = getExtension(file.name);
     if (!ext) {
-      file.type = 'DOCUMENT';
+      file.type = "DOCUMENT";
     } else if (!file.type) {
       const desc = fileTypes[ext]?.description;
       if (desc) {

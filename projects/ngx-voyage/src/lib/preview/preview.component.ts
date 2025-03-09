@@ -1,14 +1,14 @@
-import { Component, HostListener, input, output } from '@angular/core';
-import { ButtonModule } from 'primeng/button';
-import { TranslatePipe } from '../i18n/translate.pipe';
-import { ImageExtensions, TextExtensions } from '../model/file-types';
-import { getExtension } from '../model/model';
-import { ImgComponent } from './img.component';
-import { PdfComponent } from './pdf.component';
-import { TextComponent } from './text.component';
+import { Component, HostListener, input, output } from "@angular/core";
+import { ButtonModule } from "primeng/button";
+import { TranslatePipe } from "../i18n/translate.pipe";
+import { ImageExtensions, TextExtensions } from "../model/file-types";
+import { getExtension } from "../model/model";
+import { ImgComponent } from "./img.component";
+import { PdfComponent } from "./pdf.component";
+import { TextComponent } from "./text.component";
 
 @Component({
-  selector: 'ngx-voyage-preview',
+  selector: "ngx-voyage-preview",
   imports: [
     ButtonModule,
     PdfComponent,
@@ -16,19 +16,19 @@ import { TextComponent } from './text.component';
     TextComponent,
     TranslatePipe,
   ],
-  templateUrl: './preview.component.html',
+  templateUrl: "./preview.component.html",
 })
 export class PreviewComponent {
-  data = input.required<any>();
+  data = input.required<Blob>();
   name = input.required<string>();
   close = output<void>();
 
-  @HostListener('document:keydown.escape', ['$event']) onKeydownHandler() {
+  @HostListener("document:keydown.escape", ["$event"]) onKeydownHandler() {
     this.close.emit();
   }
 
   isPdf() {
-    return this.name()?.endsWith('.pdf');
+    return this.name()?.endsWith(".pdf");
   }
 
   isImage() {

@@ -17,7 +17,6 @@ import bash from "highlight.js/lib/languages/bash";
 
     <pre><code class="language-typescript rounded-md"><![CDATA[import { File, NgxVoyageComponent } from "ngx-voyage";
 
-
 @Component({
   selector: "app-root",
   imports: [NgxVoyageComponent],

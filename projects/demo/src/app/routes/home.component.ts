@@ -1,8 +1,11 @@
 import { Component } from "@angular/core";
-import { NgxVoyageComponent } from "../../../../../dist/ngx-voyage";
+import {
+  FilePreviewOutput,
+  NgxVoyageComponent,
+} from "../../../../../dist/ngx-voyage";
 import { ButtonModule } from "primeng/button";
 import { RouterLink } from "@angular/router";
-import { filesMock } from "../files.mock";
+import { filesContentMock, filesMock } from "../mocks/files.mock";
 
 @Component({
   selector: "app-home",
@@ -32,6 +35,7 @@ import { filesMock } from "../files.mock";
         <ngx-voyage
           path="/home/voyage"
           [files]="files"
+          (previewFile)="preview($event)"
           styleClass="border border-gray-400 rounded-lg"
         >
         </ngx-voyage>
@@ -42,4 +46,10 @@ import { filesMock } from "../files.mock";
 })
 export class HomeComponent {
   files = filesMock;
+  preview({ path, cb }: FilePreviewOutput) {
+    const blob = new Blob([filesContentMock[path]], {
+      type: "text/plain",
+    });
+    cb(blob);
+  }
 }

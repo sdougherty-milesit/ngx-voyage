@@ -56,5 +56,20 @@ export class NgxVoyageComponent {
 
   openFolder = output<string>();
   openFile = output<string>();
+
+  /**
+   * Fired when the user requests to preview the content of a file.
+   * This provides a `FilePreviewOutput` as `$event`,
+   * allowing you to provide the file content in a callback. Example:
+   *
+   *  preview({ path, cb }: FilePreviewOutput) {
+   *    const blob = new Blob(['Hello world'], {
+   *      type: "text/plain",
+   *    });
+   *    cb(blob);
+   *  }
+   *
+   * Preview the content of a file
+   */
   previewFile = output<FilePreviewOutput>();
 }
