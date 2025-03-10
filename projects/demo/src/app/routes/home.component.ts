@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, computed, model, signal } from "@angular/core";
 import {
   FilePreviewOutput,
   NgxVoyageComponent,
@@ -48,8 +48,8 @@ import { filesContentMock, filesMock } from "../mocks/files.mock";
       </div>
       <div class="h-[30rem]">
         <ngx-voyage
-          path="/home/voyage"
-          [files]="files"
+          [(path)]="path"
+          [files]="files()"
           (previewFile)="preview($event)"
           class="border border-gray-400 dark:border-gray-500 rounded-lg shadow-2xl"
         >
@@ -60,11 +60,23 @@ import { filesContentMock, filesMock } from "../mocks/files.mock";
   imports: [NgxVoyageComponent, ButtonModule, RouterLink],
 })
 export class HomeComponent {
-  files = filesMock;
+  path = model("/home/voyage");
+  files = computed(() => filesMock[this.path()]);
+
   preview({ path, cb }: FilePreviewOutput) {
-    const blob = new Blob([filesContentMock[path]], {
-      type: "text/plain",
-    });
-    cb(blob);
+    if (path.endsWith("light.png")) {
+      fetch("light.png").then((response) =>
+        response.blob().then((blob) => cb(blob))
+      );
+    } else if (path.endsWith("dark.png")) {
+      fetch("dark.png").then((response) =>
+        response.blob().then((blob) => cb(blob))
+      );
+    } else {
+      const blob = new Blob([filesContentMock[path]], {
+        type: "text/plain",
+      });
+      cb(blob);
+    }
   }
 }

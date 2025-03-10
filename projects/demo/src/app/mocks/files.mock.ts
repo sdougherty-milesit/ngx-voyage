@@ -1,39 +1,87 @@
 import { File } from "../../../../../dist/ngx-voyage";
 
-export const filesMock: File[] = [
-  {
-    isFile: true,
-    isDirectory: false,
-    isSymbolicLink: false,
-    modifiedDate: new Date(),
-    name: ".secrets.txt",
-    size: 123456,
-  },
-  {
-    isFile: true,
-    isDirectory: false,
-    isSymbolicLink: false,
-    modifiedDate: new Date(Date.now() - 86400000),
-    name: "example.component.ts",
-    size: 2048,
-  },
-  {
-    isFile: true,
-    isDirectory: false,
-    isSymbolicLink: false,
-    modifiedDate: new Date(Date.now() - 86400000 * 2),
-    name: "README.md",
-    size: 210,
-  },
-  {
-    isFile: true,
-    isDirectory: false,
-    isSymbolicLink: false,
-    modifiedDate: new Date(),
-    name: "LICENSE.md",
-    size: 150,
-  },
-];
+export const filesMock: Record<string, File[]> = {
+  "/": [
+    {
+      isFile: false,
+      isDirectory: true,
+      isSymbolicLink: false,
+      modifiedDate: new Date(),
+      name: "home",
+      size: 72,
+    },
+  ],
+  "/home": [
+    {
+      isFile: false,
+      isDirectory: true,
+      isSymbolicLink: false,
+      modifiedDate: new Date(),
+      name: "voyage",
+      size: 43,
+    },
+  ],
+  "/home/voyage": [
+    {
+      isFile: false,
+      isDirectory: true,
+      isSymbolicLink: false,
+      modifiedDate: new Date(Date.now() - 86400000 / 2),
+      name: "screenshots",
+      size: 24,
+    },
+    {
+      isFile: true,
+      isDirectory: false,
+      isSymbolicLink: false,
+      modifiedDate: new Date(),
+      name: ".secrets.txt",
+      size: 64,
+    },
+    {
+      isFile: true,
+      isDirectory: false,
+      isSymbolicLink: false,
+      modifiedDate: new Date(Date.now() - 86400000),
+      name: "example.component.ts",
+      size: 2048,
+    },
+    {
+      isFile: true,
+      isDirectory: false,
+      isSymbolicLink: false,
+      modifiedDate: new Date(Date.now() - 86400000 * 2),
+      name: "README.md",
+      size: 626,
+    },
+    {
+      isFile: true,
+      isDirectory: false,
+      isSymbolicLink: false,
+      modifiedDate: new Date(),
+      name: "LICENSE.md",
+      size: 1068,
+    },
+  ],
+  "/home/voyage/screenshots": [
+    {
+      isFile: true,
+      isDirectory: false,
+      isSymbolicLink: false,
+      modifiedDate: new Date(),
+      name: "light.png",
+      size: 139075,
+    },
+    {
+      isFile: true,
+      isDirectory: false,
+      isSymbolicLink: false,
+      modifiedDate: new Date(),
+      name: "dark.png",
+      size: 122454,
+    },
+  ],
+};
 
 export const filesContentMock: Record<string, string> = {
   "/home/voyage/.secrets.txt": `

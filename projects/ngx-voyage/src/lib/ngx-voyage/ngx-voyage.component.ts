@@ -1,4 +1,10 @@
-import { Component, input, output, ViewEncapsulation } from "@angular/core";
+import {
+  Component,
+  input,
+  model,
+  output,
+  ViewEncapsulation,
+} from "@angular/core";
 import { ProgressBarModule } from "primeng/progressbar";
 import { ListComponent } from "../list/list.component";
 import { Message } from "../model/message";
@@ -26,7 +32,7 @@ export class NgxVoyageComponent {
    * current folder path to display in the title bar
    * example: '/home/bob/'
    */
-  path = input.required<string>();
+  path = model.required<string>();
 
   /**
    * list if files contained in the current folder
@@ -72,4 +78,10 @@ export class NgxVoyageComponent {
    * Preview the content of a file
    */
   previewFile = output<FilePreviewOutput>();
+
+  onOpenFolder(folderPath: string) {
+    console.log("oink", folderPath);
+    this.path.set(folderPath);
+    this.openFolder.emit(folderPath);
+  }
 }

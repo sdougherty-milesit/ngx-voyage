@@ -3,7 +3,7 @@
 >
   <ngx-voyage-title
     [path]="path()"
-    (navigate)="openFolder.emit($event)"
+    (navigate)="onOpenFolder($event)"
   ></ngx-voyage-title>
 
   <div
@@ -15,7 +15,7 @@
       [message]="message()"
       [loading]="loading()"
       (openFile)="openFile.emit($event)"
-      (openFolder)="openFolder.emit($event)"
+      (openFolder)="onOpenFolder($event)"
       (previewFile)="previewFile.emit($event)"
     ></ngx-voyage-list>
   </div>
