@@ -7,24 +7,24 @@
   selectionMode="single"
   metaKeySelection="true"
   [(selection)]="selectedFile"
-  tableStyleClass="table-fixed"
   [customSort]="true"
   (sortFunction)="onSort($event)"
   [sortField]="sortField()"
   [sortOrder]="sortOrder()"
+  [resizableColumns]="true"
 >
   <ng-template #header>
     <tr>
-      <th pSortableColumn="name" class="max-w-0 w-3/5">
+      <th pResizableColumn pSortableColumn="name" class="max-w-0 w-3/5">
         {{ "NAME" | translate }} <p-sortIcon field="name" />
       </th>
-      <th pSortableColumn="size" class="w-1/5">
+      <th pResizableColumn pSortableColumn="size" class="w-1/5">
         {{ "SIZE" | translate }} <p-sortIcon field="size" />
       </th>
-      <th pSortableColumn="type" class="w-1/5">
+      <th pResizableColumn pSortableColumn="type" class="w-1/5">
         {{ "TYPE" | translate }} <p-sortIcon field="type" />
       </th>
-      <th pSortableColumn="modifiedDate" class="w-3/10">
+      <th pResizableColumn pSortableColumn="modifiedDate" class="w-3/10">
         {{ "DATE" | translate }} <p-sortIcon field="modifiedDate" />
       </th>
     </tr>

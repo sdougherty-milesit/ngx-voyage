@@ -46,12 +46,12 @@ import { filesContentMock, filesMock } from "../mocks/files.mock";
           </a>
         </div>
       </div>
-      <div class="shadow-2xl h-[30rem]">
+      <div class="h-[30rem]">
         <ngx-voyage
           path="/home/voyage"
           [files]="files"
           (previewFile)="preview($event)"
-          styleClass="border border-gray-400 dark:border-gray-500 rounded-lg"
+          class="border border-gray-400 dark:border-gray-500 rounded-lg shadow-2xl"
         >
         </ngx-voyage>
       </div>
