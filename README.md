@@ -1,6 +1,9 @@
 # ngx-voyage
 
-ngx-voyage is an Angular File Explorer component built with PrimeNG.
+[![npmjs](https://img.shields.io/npm/v/ngx-voyage?color=blue)](https://www.npmjs.com/package/ngx-voyage)
+
+`ngx-voyage` is a File Explorer component for [Angular](https://angular.dev/) and [PrimeNG](https://primeng.org/).\
+Demo and docs: https://mschn.github.io/ngx-voyage/
 
 <p align="center">
   <img src="projects/demo/public/readme.png" width="" />
@@ -33,5 +36,5 @@ export class AppComponent {
 ## Built with
 
 - [Angular](https://angular.dev/)
+- [PrimeNG](https://primeng.org/)
 - [Tailwind](https://tailwindcss.com/)
-- [Primeng](https://primeng.org/)
