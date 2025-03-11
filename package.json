@@ -51,6 +51,8 @@
     "@angular/build": "^19.1.8",
     "@angular/cli": "^19.1.8",
     "@angular/compiler-cli": "^19.1.7",
+    "@playwright/test": "^1.51.0",
+    "@types/node": "^22.13.10",
     "ng-packagr": "^19.1.0",
     "prettier": "^3.3.3",
     "typescript": "~5.7.2"

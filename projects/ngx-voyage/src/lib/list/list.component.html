@@ -50,20 +50,23 @@
               <i class="fa-regular text-2xl {{ getFileIcon(file) }}"></i>
             }
           </div>
-          <span class="truncate">{{ file.name }}</span>
+          <span class="truncate" data-testid="files-list-name">{{
+            file.name
+          }}</span>
         </div>
       </td>
       <td
         class="truncate"
         [ngClass]="{ 'text-gray-500': file.name.startsWith('.') }"
+        data-testid="files-list-size"
       >
         {{ prettyBytes(file.size) }}
       </td>
-      <td class="truncate">
+      <td class="truncate" data-testid="files-list-type">
         {{ file.type | translate }}
       </td>
       <td>
-        <div class="truncate">
+        <div class="truncate" data-testid="files-list-date">
           {{ formatDate(file) }}
         </div>
       </td>
