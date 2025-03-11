@@ -1,7 +1,11 @@
 import {
   Component,
+  EventEmitter,
+  inject,
   input,
   model,
+  OnInit,
+  Output,
   output,
   ViewEncapsulation,
 } from "@angular/core";
@@ -10,6 +14,7 @@ import { ListComponent } from "../list/list.component";
 import { Message } from "../model/message";
 import { addType, File, FilePreviewOutput } from "../model/model";
 import { TitleComponent } from "../title/title.component";
+import { Store } from "../model/store";
 
 @Component({
   selector: "ngx-voyage",
@@ -27,7 +32,9 @@ import { TitleComponent } from "../title/title.component";
     "../../../../../node_modules/@fortawesome/fontawesome-free/css/brands.css",
   ],
 })
-export class NgxVoyageComponent {
+export class NgxVoyageComponent implements OnInit {
+  #store = inject(Store);
+
   /**
    * current folder path to display in the title bar
    * example: '/home/bob/'
@@ -56,11 +63,16 @@ export class NgxVoyageComponent {
   loading = input<boolean>(false);
 
   /**
-   * CSS class to add to the top level element
+   * can be removed in favor of (onPath) model
+   * @deprecated
    */
-  styleClass = input("");
-
   openFolder = output<string>();
+
+  /**
+   * Fired when the user requests to open this file.
+   * When this happens you should open the file with an external program,
+   * ie a PDF viewer or a text editor, or a new browser tab.
+   */
   openFile = output<string>();
 
   /**
@@ -78,6 +90,11 @@ export class NgxVoyageComponent {
    * Preview the content of a file
    */
   previewFile = output<FilePreviewOutput>();
+
+  ngOnInit() {
+    const hasOpenFileOutput = this.openFile["listeners"]?.length > 0;
+    this.#store.setShowOpenFile(hasOpenFileOutput);
+  }
 
   onOpenFolder(folderPath: string) {
     this.path.set(folderPath);

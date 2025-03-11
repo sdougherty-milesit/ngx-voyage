@@ -1,4 +1,4 @@
-import { NgClass } from '@angular/common';
+import { NgClass } from "@angular/common";
 import {
   Component,
   computed,
@@ -13,23 +13,23 @@ import {
   signal,
   SimpleChanges,
   viewChild,
-} from '@angular/core';
-import { format, isToday, isYesterday } from 'date-fns';
-import { MenuItem, SortEvent } from 'primeng/api';
-import { ContextMenu, ContextMenuModule } from 'primeng/contextmenu';
-import { DialogModule } from 'primeng/dialog';
-import { ProgressBarModule } from 'primeng/progressbar';
-import { Table, TableModule } from 'primeng/table';
-import { getDateFnsLocale, getMessages } from '../i18n/i18n';
-import { TranslatePipe } from '../i18n/translate.pipe';
-import { MessageComponent } from '../message/message.component';
-import { canPreviewFile, getFileIcon } from '../model/file-types';
+} from "@angular/core";
+import { format, isToday, isYesterday } from "date-fns";
+import { MenuItem, SortEvent } from "primeng/api";
+import { ContextMenu, ContextMenuModule } from "primeng/contextmenu";
+import { DialogModule } from "primeng/dialog";
+import { ProgressBarModule } from "primeng/progressbar";
+import { Table, TableModule } from "primeng/table";
+import { getDateFnsLocale, getMessages } from "../i18n/i18n";
+import { TranslatePipe } from "../i18n/translate.pipe";
+import { MessageComponent } from "../message/message.component";
+import { canPreviewFile, getFileIcon } from "../model/file-types";
 import {
   getSortFieldFromLocalstorage,
   getSortOrderFromLocalstorage,
   writeSortToLocalstorage,
-} from '../model/localstorage';
-import { Message } from '../model/message';
+} from "../model/localstorage";
+import { Message } from "../model/message";
 import {
   File,
   FilePreviewOutput,
@@ -37,14 +37,14 @@ import {
   isFileEqual,
   isFileSortField,
   sortFiles,
-} from '../model/model';
-import { Store } from '../model/store';
-import { prettyBytes } from '../model/utils';
-import { PreviewComponent } from '../preview/preview.component';
+} from "../model/model";
+import { Store } from "../model/store";
+import { prettyBytes } from "../model/utils";
+import { PreviewComponent } from "../preview/preview.component";
 
 @Component({
-  selector: 'ngx-voyage-list',
-  templateUrl: './list.component.html',
+  selector: "ngx-voyage-list",
+  templateUrl: "./list.component.html",
   imports: [
     NgClass,
     TableModule,
@@ -61,8 +61,8 @@ export class ListComponent implements OnChanges {
   #locale = inject(LOCALE_ID);
   #store = inject(Store);
 
-  contextMenu = viewChild<ContextMenu>('contextMenu');
-  dataTable = viewChild<Table>('dataTable');
+  contextMenu = viewChild<ContextMenu>("contextMenu");
+  dataTable = viewChild<Table>("dataTable");
 
   path = input.required<string>();
   files = input.required<File[]>();
@@ -73,7 +73,7 @@ export class ListComponent implements OnChanges {
     if (this.#store.showHiddenFiles()) {
       return this.files();
     } else {
-      return this.files().filter(({ name }) => !name.startsWith('.'));
+      return this.files().filter(({ name }) => !name.startsWith("."));
     }
   });
   sortOrder = signal<number>(0);
@@ -85,7 +85,7 @@ export class ListComponent implements OnChanges {
     return sortFiles(
       [...this.filteredFiles()],
       this.sortField(),
-      this.sortOrder(),
+      this.sortOrder()
     );
   });
 
@@ -103,7 +103,7 @@ export class ListComponent implements OnChanges {
 
   menuItems: MenuItem[] = [
     {
-      label: 'Preview',
+      label: "Preview",
       visible: false,
       command: () => {
         const f = this.selectedFile();
@@ -113,7 +113,7 @@ export class ListComponent implements OnChanges {
       },
     },
     {
-      label: 'Open',
+      label: "Open",
       command: (event) => {
         const f = this.selectedFile();
         f && this.openFileOrFolder(f);
@@ -131,7 +131,7 @@ export class ListComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['path']) {
+    if (changes["path"]) {
       this.selectedFile.set(undefined);
       this.showPreview.set(false);
     }
@@ -179,6 +179,8 @@ export class ListComponent implements OnChanges {
     if (cm && event?.currentTarget && file) {
       this.selectedFile.set(file);
       this.menuItems[0].visible = canPreviewFile(file);
+      this.menuItems[1].visible =
+        this.#store.showOpenFile() || file.isDirectory;
       cm.target = event.currentTarget as HTMLElement;
       cm.show(event);
     }
@@ -201,16 +203,16 @@ export class ListComponent implements OnChanges {
     }
   }
 
-  @HostListener('window:keydown', ['$event'])
+  @HostListener("window:keydown", ["$event"])
   onKeydown(event: KeyboardEvent) {
     const selected = this.selectedFile();
-    if (event.key === 'ArrowUp') {
+    if (event.key === "ArrowUp") {
       this.selectFileWithOffset(-1);
     }
-    if (event.key === 'ArrowDown') {
+    if (event.key === "ArrowDown") {
       this.selectFileWithOffset(1);
     }
-    if (event.key === 'Enter' && selected) {
+    if (event.key === "Enter" && selected) {
       this.onDoubleClick(selected);
     }
   }
@@ -243,7 +245,7 @@ export class ListComponent implements OnChanges {
       const f = this.sortedFiles()[i];
       if (isFileEqual(file, f)) {
         const fileDom = document.querySelector(
-          `tr[data-rowIndex="${i}"]`,
+          `tr[data-rowIndex="${i}"]`
         ) as HTMLTableRowElement;
         fileDom.focus();
       }
@@ -253,19 +255,19 @@ export class ListComponent implements OnChanges {
 
   formatDate(file: File) {
     const locale = getDateFnsLocale();
-    const time = format(file.modifiedDate, 'H:mm', { locale });
+    const time = format(file.modifiedDate, "H:mm", { locale });
     const messages = getMessages();
     if (isToday(file.modifiedDate)) {
       return `${messages.TODAY_AT} ${time}`;
     } else if (isYesterday(file.modifiedDate)) {
       return `${messages.YESTERDAY_AT} ${time}`;
     } else {
-      const date = format(file.modifiedDate, 'd LLL yyyy', { locale });
+      const date = format(file.modifiedDate, "d LLL yyyy", { locale });
       return `${date} ${messages.AT} ${time}`;
     }
   }
 
   getTargetPath(file: File) {
-    return `${this.path()}/${file.name}`.replaceAll('//', '/');
+    return `${this.path()}/${file.name}`.replaceAll("//", "/");
   }
 }
