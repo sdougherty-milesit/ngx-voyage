@@ -2,6 +2,10 @@
 
 ngx-voyage is an Angular File Explorer component built with PrimeNG.
 
+<p align="center">
+  <img src="projects/demo/public/readme.png" width="" />
+</p>
+
 ## Quickstart
 
 Install `ngx-voyage` with `npm`:

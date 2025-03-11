@@ -80,7 +80,6 @@ export class NgxVoyageComponent {
   previewFile = output<FilePreviewOutput>();
 
   onOpenFolder(folderPath: string) {
-    console.log("oink", folderPath);
     this.path.set(folderPath);
     this.openFolder.emit(folderPath);
   }

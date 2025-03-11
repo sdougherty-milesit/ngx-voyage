@@ -1,4 +1,20 @@
 <div class="flex flex-row items-center">
+  <p-button
+    icon="pi"
+    text="true"
+    (click)="onBack()"
+    [disabled]="backButtonDisabled()"
+    ><i class="fa-solid fa-chevron-left text-gray-600 dark:text-gray-300"></i
+  ></p-button>
+  <p-button
+    icon="pi"
+    text="true"
+    class="mr-3"
+    (click)="onForward()"
+    [disabled]="forwardButtonDisabled()"
+    ><i class="fa-solid fa-chevron-right text-gray-600 dark:text-gray-300"></i
+  ></p-button>
+
   <div
     class="bg-white dark:bg-gray-900 rounded-lg w-full p-1 border border-gray-400 dark:border-gray-600 h-[3.2rem] content-center"
   >
@@ -16,10 +32,10 @@
     }
   </div>
 
-  <p-button (click)="op.toggle($event)" icon="pi" text="true" class="mx-3"
+  <p-button (click)="op.toggle($event)" icon="pi" text="true" class="ml-3"
     ><i class="fa-solid fa-bars text-gray-600 dark:text-gray-300"></i
   ></p-button>
-  <p-popover #op>
-    <ngx-voyage-settings></ngx-voyage-settings>
-  </p-popover>
 </div>
+<p-popover #op>
+  <ngx-voyage-settings></ngx-voyage-settings>
+</p-popover>

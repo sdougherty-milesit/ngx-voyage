@@ -1,4 +1,4 @@
-import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
+import { patchState, signalStore, withMethods, withState } from "@ngrx/signals";
 
 type State = {
   showHiddenFiles: boolean;
@@ -9,7 +9,7 @@ const initialState: State = {
 };
 
 export const Store = signalStore(
-  { providedIn: 'root' },
+  { providedIn: "root" },
   withState(initialState),
   withMethods((store) => ({
     toggleHiddenFiles: () =>
@@ -17,5 +17,5 @@ export const Store = signalStore(
         ...state,
         showHiddenFiles: !state.showHiddenFiles,
       })),
-  })),
+  }))
 );
