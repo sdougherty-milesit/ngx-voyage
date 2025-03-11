@@ -9,5 +9,35 @@ test.describe("list view", () => {
       "README.md",
       "LICENSE.md",
     ]);
+    await expect(page.getByTestId("files-list-size")).toHaveText([
+      "24 B",
+      "2.0 kB",
+      "626 B",
+      "1.1 kB",
+    ]);
+    await expect(page.getByTestId("files-list-type")).toHaveText([
+      "Folder",
+      "Typescript Document",
+      "Markdown Document",
+      "Markdown Document",
+    ]);
+
+    expect(page.getByTestId("files-list-date").first()).toContainText(
+      "Today at"
+    );
+    expect(page.getByTestId("files-list-date").nth(1)).toContainText(
+      "Yesterday at"
+    );
+  });
+
+  test("should sort by name", async ({ page }) => {
+    await page.goto("http://localhost:4200/");
+    await page.getByRole("columnheader", { name: "Name" }).click();
+    await expect(page.getByTestId("files-list-name")).toHaveText([
+      "example.component.ts",
+      "LICENSE.md",
+      "README.md",
+      "screenshots",
+    ]);
   });
 });
