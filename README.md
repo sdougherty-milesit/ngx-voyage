@@ -1,6 +1,7 @@
 # ngx-voyage
 
 [![npmjs](https://img.shields.io/npm/v/ngx-voyage?color=blue)](https://www.npmjs.com/package/ngx-voyage)
+[![E2E tests](https://github.com/mschn/ngx-voyage/actions/workflows/e2e_tests.yml/badge.svg)](https://github.com/mschn/ngx-voyage/actions/workflows/e2e_tests.yml)
 
 `ngx-voyage` is a File Explorer component for [Angular](https://angular.dev/) and [PrimeNG](https://primeng.org/).\
 Demo and docs: https://mschn.github.io/ngx-voyage/
