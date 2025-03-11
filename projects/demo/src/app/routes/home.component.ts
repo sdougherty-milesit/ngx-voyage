@@ -31,7 +31,7 @@ import { filesContentMock, filesMock } from "../mocks/files.mock";
             >PrimeNG</a
           >
         </h2>
-        <div class="flex gap-3 mx-auto">
+        <div class="flex gap-5 mx-auto">
           <p-button routerLink="/quickstart"
             ><i class="fa-solid fa-arrow-right text-xl"></i> Get
             started</p-button
@@ -40,9 +40,10 @@ import { filesContentMock, filesMock } from "../mocks/files.mock";
             href="https://github.com/mschn/ngx-voyage"
             target="_blank"
             rel="noopener noreferrer"
-            class="p-button p-button-secondary p-button-outlined"
+            class="p-button p-button-outlined bg-white! border-blue-400!"
           >
-            <i class="fa-brands fa-github text-xl"></i> Github
+            <i class="fa-brands fa-github text-xl"></i>
+            Github
           </a>
         </div>
       </div>
