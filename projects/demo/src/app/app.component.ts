@@ -1,13 +1,21 @@
 import { Component, model } from "@angular/core";
-import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
+import { RouterOutlet } from "@angular/router";
+import { ButtonModule } from "primeng/button";
+import { DrawerModule } from "primeng/drawer";
 import { routes } from "./app.routes";
 import { NavComponent } from "./nav.component";
-import { DrawerModule } from "primeng/drawer";
-import { ButtonModule } from "primeng/button";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
 @Component({
   selector: "app-root",
-  imports: [RouterOutlet, NavComponent, DrawerModule, ButtonModule],
+  imports: [
+    RouterOutlet,
+    NavComponent,
+    DrawerModule,
+    ButtonModule,
+    FaIconComponent,
+  ],
   template: `
     <div class="flex  h-full w-full overflow-auto bg-gray-100 dark:bg-gray-800">
       <div class="hidden md:block">
@@ -19,9 +27,9 @@ import { ButtonModule } from "primeng/button";
 
       <div class="container mx-auto p-3">
         <div class="md:hidden ">
-          <p-button (click)="showMenu.set(true)" outlined="true"
-            ><i class="fa-solid fa-bars"></i
-          ></p-button>
+          <p-button (click)="showMenu.set(true)" outlined="true">
+            <fa-icon [icon]="faBars"></fa-icon>
+          </p-button>
         </div>
         <router-outlet></router-outlet>
       </div>
@@ -31,4 +39,5 @@ import { ButtonModule } from "primeng/button";
 export class AppComponent {
   routes = routes;
   showMenu = model(false);
+  faBars = faBars;
 }

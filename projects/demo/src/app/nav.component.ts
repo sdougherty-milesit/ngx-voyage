@@ -1,10 +1,12 @@
 import { Component } from "@angular/core";
 import { RouterLink, RouterLinkActive } from "@angular/router";
 import { routes } from "./app.routes";
+import { faGithub, faNpm } from "@fortawesome/free-brands-svg-icons";
+import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
 @Component({
   selector: "app-nav",
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, FaIconComponent],
   template: `
     <div class="flex flex-col gap-3 py-3 px-5 ">
       @for (route of routes; track route.path) {
@@ -26,19 +28,24 @@ import { routes } from "./app.routes";
           href="https://github.com/mschn/ngx-voyage"
           target="_blank"
           rel="noopener noreferrer"
-          ><i class="fa-brands fa-github"></i
-        ></a>
+        >
+          <fa-icon [icon]="faGithub"></fa-icon>
+        </a>
 
         <a
           href="https://www.npmjs.com/package/ngx-voyage"
           target="_blank"
           rel="noopener noreferrer"
-          ><i class="fa-brands fa-npm"></i
-        ></a>
+        >
+          <fa-icon [icon]="faNpm"></fa-icon>
+        </a>
       </div>
     </div>
   `,
 })
 export class NavComponent {
   routes = routes;
+
+  faGithub = faGithub;
+  faNpm = faNpm;
 }

@@ -24,13 +24,7 @@ import { Store } from "../model/store";
   host: {
     class: "flex flex-col h-full overflow-hidden",
   },
-  styleUrls: [
-    "ngx-voyage.component.css",
-    "../../../../../node_modules/@fortawesome/fontawesome-free/css/fontawesome.css",
-    "../../../../../node_modules/@fortawesome/fontawesome-free/css/solid.css",
-    "../../../../../node_modules/@fortawesome/fontawesome-free/css/regular.css",
-    "../../../../../node_modules/@fortawesome/fontawesome-free/css/brands.css",
-  ],
+  styleUrls: ["ngx-voyage.component.css"],
 })
 export class NgxVoyageComponent implements OnInit {
   #store = inject(Store);

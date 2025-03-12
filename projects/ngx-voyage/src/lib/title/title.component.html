@@ -4,7 +4,10 @@
     text="true"
     (click)="onBack()"
     [disabled]="backButtonDisabled()"
-    ><i class="fa-solid fa-chevron-left text-gray-600 dark:text-gray-300"></i
+    ><fa-icon
+      [icon]="faChevronLeft"
+      class="text-gray-600 dark:text-gray-300"
+    ></fa-icon
   ></p-button>
   <p-button
     icon="pi"
@@ -12,7 +15,10 @@
     class="mr-3"
     (click)="onForward()"
     [disabled]="forwardButtonDisabled()"
-    ><i class="fa-solid fa-chevron-right text-gray-600 dark:text-gray-300"></i
+    ><fa-icon
+      [icon]="faChevronRight"
+      class="text-gray-600 dark:text-gray-300"
+    ></fa-icon
   ></p-button>
 
   <div
@@ -21,7 +27,10 @@
     @for (fragment of pathWithRoot(); track fragment; let isLast = $last) {
       <p-button (onClick)="navigate.emit(fragment.path)" variant="text">
         @if (fragment.path === "/") {
-          <i class="fa-solid fa-desktop text-gray-600 dark:text-gray-300"></i>
+          <fa-icon
+            [icon]="faDesktop"
+            class="text-gray-600 dark:text-gray-300"
+          ></fa-icon>
         } @else {
           {{ fragment.name }}
         }
@@ -33,7 +42,7 @@
   </div>
 
   <p-button (click)="op.toggle($event)" icon="pi" text="true" class="ml-3"
-    ><i class="fa-solid fa-bars text-gray-600 dark:text-gray-300"></i
+    ><fa-icon [icon]="faBars" class="text-gray-600 dark:text-gray-300"></fa-icon
   ></p-button>
 </div>
 <p-popover #op>

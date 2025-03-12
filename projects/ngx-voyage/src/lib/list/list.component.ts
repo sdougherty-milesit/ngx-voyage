@@ -41,6 +41,8 @@ import {
 import { Store } from "../model/store";
 import { prettyBytes } from "../model/utils";
 import { PreviewComponent } from "../preview/preview.component";
+import { faFolder } from "@fortawesome/free-solid-svg-icons";
+import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
 @Component({
   selector: "ngx-voyage-list",
@@ -55,10 +57,10 @@ import { PreviewComponent } from "../preview/preview.component";
     MessageComponent,
     ProgressBarModule,
     TranslatePipe,
+    FaIconComponent,
   ],
 })
 export class ListComponent implements OnChanges {
-  #locale = inject(LOCALE_ID);
   #store = inject(Store);
 
   contextMenu = viewChild<ContextMenu>("contextMenu");
@@ -95,6 +97,7 @@ export class ListComponent implements OnChanges {
 
   prettyBytes = prettyBytes;
   getFileIcon = getFileIcon;
+  faFolder = faFolder;
 
   selectedFile = model<File | undefined>(undefined);
 

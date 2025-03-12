@@ -6,7 +6,9 @@ import {
 import { ButtonModule } from "primeng/button";
 import { RouterLink } from "@angular/router";
 import { filesContentMock, filesMock } from "../mocks/files.mock";
-
+import { faGithub, faNpm } from "@fortawesome/free-brands-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 @Component({
   selector: "app-home",
   template: `
@@ -32,9 +34,9 @@ import { filesContentMock, filesMock } from "../mocks/files.mock";
           >
         </h2>
         <div class="flex gap-5 mx-auto">
-          <p-button routerLink="/quickstart"
-            ><i class="fa-solid fa-arrow-right text-xl"></i> Get
-            started</p-button
+          <p-button routerLink="/quickstart">
+            <fa-icon [icon]="faArrowRight" class="text-xl"></fa-icon>
+            Get started</p-button
           >
           <a
             href="https://github.com/mschn/ngx-voyage"
@@ -42,7 +44,7 @@ import { filesContentMock, filesMock } from "../mocks/files.mock";
             rel="noopener noreferrer"
             class="p-button p-button-outlined bg-white! border-blue-400!"
           >
-            <i class="fa-brands fa-github text-xl"></i>
+            <fa-icon [icon]="faGithub" class="text-xl"></fa-icon>
             Github
           </a>
         </div>
@@ -58,7 +60,7 @@ import { filesContentMock, filesMock } from "../mocks/files.mock";
       </div>
     </div>
   `,
-  imports: [NgxVoyageComponent, ButtonModule, RouterLink],
+  imports: [NgxVoyageComponent, ButtonModule, RouterLink, FaIconComponent],
 })
 export class HomeComponent {
   path = model("/home/voyage");
@@ -80,4 +82,8 @@ export class HomeComponent {
       cb(blob);
     }
   }
+
+  faGithub = faGithub;
+  faNpm = faNpm;
+  faArrowRight = faArrowRight;
 }

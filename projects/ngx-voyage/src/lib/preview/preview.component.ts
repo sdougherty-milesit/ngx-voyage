@@ -6,6 +6,8 @@ import { getExtension } from "../model/model";
 import { ImgComponent } from "./img.component";
 import { PdfComponent } from "./pdf.component";
 import { TextComponent } from "./text.component";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
 @Component({
   selector: "ngx-voyage-preview",
@@ -15,6 +17,7 @@ import { TextComponent } from "./text.component";
     ImgComponent,
     TextComponent,
     TranslatePipe,
+    FaIconComponent,
   ],
   templateUrl: "./preview.component.html",
 })
@@ -26,6 +29,8 @@ export class PreviewComponent {
   @HostListener("document:keydown.escape", ["$event"]) onKeydownHandler() {
     this.close.emit();
   }
+
+  faClose = faClose;
 
   isPdf() {
     return this.name()?.endsWith(".pdf");

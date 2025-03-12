@@ -45,9 +45,9 @@
         >
           <div class="w-6">
             @if (file.isDirectory) {
-              <i class="fa-solid fa-folder text-2xl"></i>
+              <fa-icon [icon]="faFolder" class="text-2xl"></fa-icon>
             } @else {
-              <i class="fa-regular text-2xl {{ getFileIcon(file) }}"></i>
+              <fa-icon [icon]="getFileIcon(file)" class="text-2xl"></fa-icon>
             }
           </div>
           <span class="truncate" data-testid="files-list-name">{{
