@@ -8,7 +8,7 @@ import { FaIconComponent } from "@fortawesome/angular-fontawesome";
   selector: "app-nav",
   imports: [RouterLink, RouterLinkActive, FaIconComponent],
   template: `
-    <div class="flex flex-col gap-3 py-3 px-5 ">
+    <div class="flex flex-col gap-3 py-3 px-5 h-full">
       @for (route of routes; track route.path) {
         <a
           class="rounded-md px-3 py-2 text-nowrap dark:text-gray-200"
@@ -39,6 +39,15 @@ import { FaIconComponent } from "@fortawesome/angular-fontawesome";
         >
           <fa-icon [icon]="faNpm"></fa-icon>
         </a>
+      </div>
+      <div class="mt-auto text-gray-600 dark:text-gray-400 text-sm">
+        <a
+          href="https://github.com/mschn"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Mathieu Schnoor</a
+        >
+        - 2025
       </div>
     </div>
   `,

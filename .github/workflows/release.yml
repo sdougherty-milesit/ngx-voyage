@@ -36,7 +36,7 @@ jobs:
 
       - run: npm ci
 
-      - run: cp README.md projects/ngx-voyage/
+      - run: cp README.md LICENSE projects/ngx-voyage/
 
       - run: |
           cd projects/ngx-voyage

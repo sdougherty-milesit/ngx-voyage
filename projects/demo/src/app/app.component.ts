@@ -17,7 +17,7 @@ import { FaIconComponent } from "@fortawesome/angular-fontawesome";
     FaIconComponent,
   ],
   template: `
-    <div class="flex  h-full w-full overflow-auto bg-gray-100 dark:bg-gray-800">
+    <div class="flex h-full w-full overflow-auto bg-gray-100 dark:bg-gray-800">
       <div class="hidden md:block">
         <app-nav></app-nav>
       </div>
