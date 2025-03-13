@@ -26,7 +26,7 @@ export const filesMock: Record<string, File[]> = {
       isFile: false,
       isDirectory: true,
       isSymbolicLink: false,
-      modifiedDate: new Date(Date.now() - 86400000 / 2),
+      modifiedDate: new Date(Date.now()),
       name: "screenshots",
       size: 24,
     },
