@@ -6,7 +6,6 @@ import {
   HostListener,
   inject,
   input,
-  LOCALE_ID,
   model,
   OnChanges,
   output,
@@ -22,6 +21,7 @@ import { ProgressBarModule } from "primeng/progressbar";
 import { Table, TableModule } from "primeng/table";
 import { getDateFnsLocale, getMessages } from "../i18n/i18n";
 import { TranslatePipe } from "../i18n/translate.pipe";
+import { VoyageIconComponent } from "../icon";
 import { MessageComponent } from "../message/message.component";
 import { canPreviewFile, getFileIcon } from "../model/file-types";
 import {
@@ -41,8 +41,6 @@ import {
 import { Store } from "../model/store";
 import { prettyBytes } from "../model/utils";
 import { PreviewComponent } from "../preview/preview.component";
-import { faFolder } from "@fortawesome/free-solid-svg-icons";
-import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
 @Component({
   selector: "ngx-voyage-list",
@@ -57,7 +55,7 @@ import { FaIconComponent } from "@fortawesome/angular-fontawesome";
     MessageComponent,
     ProgressBarModule,
     TranslatePipe,
-    FaIconComponent,
+    VoyageIconComponent,
   ],
 })
 export class ListComponent implements OnChanges {
@@ -97,7 +95,6 @@ export class ListComponent implements OnChanges {
 
   prettyBytes = prettyBytes;
   getFileIcon = getFileIcon;
-  faFolder = faFolder;
 
   selectedFile = model<File | undefined>(undefined);
 

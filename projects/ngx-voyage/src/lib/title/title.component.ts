@@ -9,26 +9,20 @@ import {
 } from "@angular/core";
 import { ButtonModule } from "primeng/button";
 import { PopoverModule } from "primeng/popover";
+import { VoyageIconComponent } from "../icon";
 import { SettingsComponent } from "../settings/settings.component";
-import { FaIconComponent } from "@fortawesome/angular-fontawesome";
-import {
-  faBars,
-  faChevronLeft,
-  faChevronRight,
-  faDesktop,
-} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "ngx-voyage-title",
   templateUrl: "./title.component.html",
-  imports: [ButtonModule, PopoverModule, SettingsComponent, FaIconComponent],
+  imports: [
+    ButtonModule,
+    PopoverModule,
+    SettingsComponent,
+    VoyageIconComponent,
+  ],
 })
 export class TitleComponent implements OnChanges {
-  faChevronLeft = faChevronLeft;
-  faChevronRight = faChevronRight;
-  faBars = faBars;
-  faDesktop = faDesktop;
-
   path = model.required<string>();
 
   pathWithRoot = computed(() => {

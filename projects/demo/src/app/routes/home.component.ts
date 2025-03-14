@@ -1,14 +1,12 @@
-import { Component, computed, model, signal } from "@angular/core";
+import { Component, computed, model } from "@angular/core";
+import { RouterLink } from "@angular/router";
+import { ButtonModule } from "primeng/button";
 import {
   FilePreviewOutput,
   NgxVoyageComponent,
 } from "../../../../../dist/ngx-voyage";
-import { ButtonModule } from "primeng/button";
-import { RouterLink } from "@angular/router";
+import { VoyageIconComponent } from "../../../../ngx-voyage/src/lib/icon";
 import { filesContentMock, filesMock } from "../mocks/files.mock";
-import { faGithub, faNpm } from "@fortawesome/free-brands-svg-icons";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 @Component({
   selector: "app-home",
   template: `
@@ -35,16 +33,19 @@ import { FaIconComponent } from "@fortawesome/angular-fontawesome";
         </h2>
         <div class="flex gap-5 mx-auto">
           <p-button routerLink="/quickstart">
-            <fa-icon [icon]="faArrowRight" class="text-xl"></fa-icon>
+            <ngx-voyage-icon
+              type="arrow-right"
+              class="text-xl"
+            ></ngx-voyage-icon>
             Get started</p-button
           >
           <a
             href="https://github.com/mschn/ngx-voyage"
             target="_blank"
             rel="noopener noreferrer"
-            class="p-button p-button-outlined bg-white! border-blue-400!"
+            class="p-button p-button-secondary p-button-outlined"
           >
-            <fa-icon [icon]="faGithub" class="text-xl"></fa-icon>
+            <ngx-voyage-icon type="github" class="text-xl"></ngx-voyage-icon>
             Github
           </a>
         </div>
@@ -60,7 +61,7 @@ import { FaIconComponent } from "@fortawesome/angular-fontawesome";
       </div>
     </div>
   `,
-  imports: [NgxVoyageComponent, ButtonModule, RouterLink, FaIconComponent],
+  imports: [NgxVoyageComponent, ButtonModule, RouterLink, VoyageIconComponent],
 })
 export class HomeComponent {
   path = model("/home/voyage");
@@ -82,8 +83,4 @@ export class HomeComponent {
       cb(blob);
     }
   }
-
-  faGithub = faGithub;
-  faNpm = faNpm;
-  faArrowRight = faArrowRight;
 }

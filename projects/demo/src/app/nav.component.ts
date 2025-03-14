@@ -1,12 +1,11 @@
 import { Component } from "@angular/core";
 import { RouterLink, RouterLinkActive } from "@angular/router";
+import { VoyageIconComponent } from "../../../ngx-voyage/src/lib/icon";
 import { routes } from "./app.routes";
-import { faGithub, faNpm } from "@fortawesome/free-brands-svg-icons";
-import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 
 @Component({
   selector: "app-nav",
-  imports: [RouterLink, RouterLinkActive, FaIconComponent],
+  imports: [RouterLink, RouterLinkActive, VoyageIconComponent],
   template: `
     <div class="flex flex-col gap-3 py-3 px-5 h-full">
       @for (route of routes; track route.path) {
@@ -29,7 +28,7 @@ import { FaIconComponent } from "@fortawesome/angular-fontawesome";
           target="_blank"
           rel="noopener noreferrer"
         >
-          <fa-icon [icon]="faGithub"></fa-icon>
+          <ngx-voyage-icon type="github"></ngx-voyage-icon>
         </a>
 
         <a
@@ -37,7 +36,7 @@ import { FaIconComponent } from "@fortawesome/angular-fontawesome";
           target="_blank"
           rel="noopener noreferrer"
         >
-          <fa-icon [icon]="faNpm"></fa-icon>
+          <ngx-voyage-icon type="npm"></ngx-voyage-icon>
         </a>
       </div>
       <div class="mt-auto text-gray-600 dark:text-gray-400 text-sm">
@@ -54,7 +53,4 @@ import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 })
 export class NavComponent {
   routes = routes;
-
-  faGithub = faGithub;
-  faNpm = faNpm;
 }
