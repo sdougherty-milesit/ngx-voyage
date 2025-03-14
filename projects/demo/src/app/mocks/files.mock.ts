@@ -2,14 +2,7 @@ import { File } from "../../../../../dist/ngx-voyage";
 
 export const filesMock: Record<string, File[]> = {
   "/": [
-    {
-      isFile: false,
-      isDirectory: true,
-      isSymbolicLink: false,
-      modifiedDate: new Date(),
-      name: "home",
-      size: 72,
-    },
+
   ],
   "/home": [
     {
