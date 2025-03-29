@@ -13,7 +13,16 @@ body {
   padding: 0;
 }
 
+code {
+  background: white;
+  font-size: 0.9rem;
+  padding: 0.25rem;
+
+  @media (prefers-color-scheme: dark) {
+    background: #111;
+  }
+}
+
 pre {
   white-space: pre-wrap;
-  font-size: 13px;
 }
