@@ -33,6 +33,9 @@ import { FilesViewComponent } from "../views/files-view.component";
   templateUrl: "./ngx-voyage.component.html",
   encapsulation: ViewEncapsulation.None,
   styleUrls: ["ngx-voyage.component.css"],
+  host: {
+    class: "ngx-voyage-host",
+  },
 })
 export class NgxVoyageComponent implements OnInit {
   store = inject(Store);
