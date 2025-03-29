@@ -17,10 +17,11 @@ Demo and docs: https://mschn.github.io/ngx-voyage/
 Install `ngx-voyage` with `npm`:
 
 ```bash
-npm install ngx-voyage
+npm install ngx-voyage highlight.js
 ```
 
-Use `<ngx-voyage>` in your app:
+You will need to have `@angular/core`, `primeng` and `highlight.js` as they are peer dependencies.
+Then you can use `<ngx-voyage>` in your app:
 
 ```ts
 import { File, NgxVoyageComponent } from "ngx-voyage";
@@ -40,4 +41,3 @@ export class AppComponent {
 
 - [Angular](https://angular.dev/)
 - [PrimeNG](https://primeng.org/)
-- [Tailwind](https://tailwindcss.com/)
