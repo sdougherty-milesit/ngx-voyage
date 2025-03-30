@@ -17,7 +17,7 @@ export const filesMock: Record<string, File[]> = {
       isDirectory: true,
       isSymbolicLink: false,
       modifiedDate: new Date(),
-      name: "voyage",
+      name: "ngx-voyage",
       size: 43,
     },
   ],
