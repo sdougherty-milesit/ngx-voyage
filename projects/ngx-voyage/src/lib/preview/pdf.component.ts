@@ -17,10 +17,10 @@ import {
       height: 90vw;
 
       @media (width >= 64rem /* 1024px */) {
-        width: var(--container-5xl) /* 64rem = 1024px */;
+        width: 64rem;
       }
       @media (width >= 80rem /* 1280px */) {
-        width: var(--container-7xl) /* 80rem = 1280px */;
+        width: 80rem;
       }
     }
   `,

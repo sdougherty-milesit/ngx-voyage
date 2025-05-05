@@ -78,6 +78,7 @@ import { TranslatePipe } from "../i18n/translate.pipe";
           type="text"
           pInputText
           [(ngModel)]="renameFileName"
+          (keydown.enter)="doRename()"
           #renameFileInput
           data-testid="rename-file-input"
         />
