@@ -16,6 +16,7 @@ import { BaseViewComponent } from "../base-view.component";
 
 @Component({
   selector: "ngx-voyage-list-view",
+  standalone: true,
   templateUrl: "./list-view.component.html",
   styleUrl: "./list-view.component.css",
   imports: [

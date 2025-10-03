@@ -32,6 +32,7 @@ export type IconType =
 
 @Component({
   selector: "ngx-voyage-icon",
+  standalone: true,
   styles: `
     svg {
       height: 1em;

@@ -3,26 +3,27 @@ import {
   Component,
   ElementRef,
   inject,
-  input,
-  model,
-  output,
-  viewChild,
+  Input,
+  Model,
+  Output,
+  ViewChild,
 } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { ButtonModule } from "primeng/button";
 import { DialogModule } from "primeng/dialog";
 import { InputTextModule } from "primeng/inputtext";
 import { ProgressBarModule } from "primeng/progressbar";
+import { TranslatePipe } from "../i18n/translate.pipe";
 import { MessageComponent } from "../message/message.component";
 import { Message } from "../model/message";
 import { File, FilePreviewOutput, RenameFile } from "../model/model";
 import { Store } from "../model/store";
 import { GridViewComponent } from "./grid/grid-view.component";
 import { ListViewComponent } from "./list/list-view.component";
-import { TranslatePipe } from "../i18n/translate.pipe";
 
 @Component({
   selector: "ngx-voyage-files-view",
+  standalone: true,
   template: `
     @if (store.selectedView() === "grid") {
       <ng-container *ngTemplateOutlet="empty"></ng-container>
@@ -146,20 +147,20 @@ import { TranslatePipe } from "../i18n/translate.pipe";
 export class FilesViewComponent {
   store = inject(Store);
 
-  path = model.required<string>();
-  files = input.required<File[]>();
-  message = input<Message>();
-  loading = input<boolean>(false);
-  openFile = output<string>();
-  previewFile = output<FilePreviewOutput>();
-  renameFile = output<RenameFile>();
-  deleteFile = output<File>();
+  path = Model.required<string>();
+  files = Input.required<File[]>();
+  message = Input<Message>();
+  loading = Input<boolean>(false);
+  openFile = Output<string>();
+  previewFile = Output<FilePreviewOutput>();
+  renameFile = Output<RenameFile>();
+  deleteFile = Output<File>();
 
-  showRenameModal = model(false);
-  renameFileName = model("");
-  renameFileInput = viewChild<ElementRef<HTMLInputElement>>("renameFileInput");
+  showRenameModal = Model(false);
+  renameFileName = Model("");
+  renameFileInput = ViewChild<ElementRef<HTMLInputElement>>("renameFileInput");
 
-  showDeleteModal = model(false);
+  showDeleteModal = Model(false);
 
   isEmpty() {
     return this.files() == null || this.files().length === 0;

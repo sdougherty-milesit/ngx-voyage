@@ -5,6 +5,7 @@ import { Message } from "../model/message";
 
 @Component({
   selector: "ngx-voyage-message",
+  standalone: true,
   imports: [VoyageIconComponent, MessageModule],
   templateUrl: "./message.component.html",
 })

@@ -20,6 +20,7 @@ import { EditBookmarkComponent } from "./edit-bookmark/edit-bookmark.component";
 
 @Component({
   selector: "ngx-voyage-title",
+  standalone: true,
   templateUrl: "./title.component.html",
   styleUrl: "./title.component.css",
   imports: [

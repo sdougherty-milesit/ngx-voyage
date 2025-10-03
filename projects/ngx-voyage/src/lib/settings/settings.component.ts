@@ -1,12 +1,13 @@
 import { Component, computed, inject } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { RadioButtonModule } from "primeng/radiobutton";
 import { ToggleSwitchModule } from "primeng/toggleswitch";
 import { TranslatePipe } from "../i18n/translate.pipe";
 import { Store } from "../model/store";
-import { RadioButtonModule } from "primeng/radiobutton";
 
 @Component({
   selector: "ngx-voyage-settings",
+  standalone: true,
   imports: [
     FormsModule,
     ReactiveFormsModule,

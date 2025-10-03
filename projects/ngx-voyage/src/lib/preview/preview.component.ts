@@ -10,6 +10,7 @@ import { TextComponent } from "./text.component";
 
 @Component({
   selector: "ngx-voyage-preview",
+  standalone: true,
   imports: [
     ButtonModule,
     PdfComponent,

@@ -9,6 +9,7 @@ import {
 
 @Component({
   selector: "ngx-voyage-img",
+  standalone: true,
   template: ` <img #img alt="image preview" /> `,
   styles: `
     img {

@@ -1,13 +1,14 @@
-import { Component, inject, input, linkedSignal, output } from "@angular/core";
+import { Component, inject, input, output, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { ButtonModule } from "primeng/button";
 import { InputTextModule } from "primeng/inputtext";
+import { TranslatePipe } from "../../i18n/translate.pipe";
 import { Bookmark } from "../../model/bookmark";
 import { Store } from "../../model/store";
-import { TranslatePipe } from "../../i18n/translate.pipe";
 
 @Component({
   selector: "ngx-voyage-edit-bookmark",
+  standalone: true,
   imports: [FormsModule, InputTextModule, ButtonModule, TranslatePipe],
   template: `
     <div class="edit-bookmarks">
@@ -45,7 +46,7 @@ export class EditBookmarkComponent {
 
   done = output<void>();
   bookmark = input<Bookmark>();
-  name = linkedSignal(() => this.bookmark()?.name);
+  name = signal(this.bookmark()?.name ?? "");
 
   remove() {
     const bookmark = this.bookmark();

@@ -26,6 +26,7 @@ import { FilesViewComponent } from "../views/files-view.component";
 
 @Component({
   selector: "ngx-voyage",
+  standalone: true,
   imports: [
     TitleComponent,
     FilesViewComponent,

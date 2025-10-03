@@ -6,6 +6,7 @@ import { Store } from "../model/store";
 
 @Component({
   selector: "ngx-voyage-bookmarks",
+  standalone: true,
   templateUrl: "./bookmarks.component.html",
   styleUrl: "./bookmarks.component.css",
   imports: [ButtonModule, VoyageIconComponent],

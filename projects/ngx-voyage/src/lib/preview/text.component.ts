@@ -3,6 +3,7 @@ import { getLanguageClass, highlight } from "../model/highlight";
 
 @Component({
   selector: "ngx-voyage-text",
+  standalone: true,
   template: ` <div class="text ">
     <pre
       class="theme-github"

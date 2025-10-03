@@ -1,13 +1,14 @@
 import { NgClass } from "@angular/common";
 import { Component } from "@angular/core";
+import { AutoFocusModule } from "primeng/autofocus";
 import { ContextMenuModule } from "primeng/contextmenu";
 import { VoyageIconComponent } from "../../icon";
 import { PreviewComponent } from "../../preview/preview.component";
 import { BaseViewComponent } from "../base-view.component";
-import { AutoFocusModule } from "primeng/autofocus";
 
 @Component({
   selector: "ngx-voyage-grid-view",
+  standalone: true,
   templateUrl: "./grid-view.component.html",
   imports: [
     VoyageIconComponent,

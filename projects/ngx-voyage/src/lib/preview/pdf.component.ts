@@ -9,6 +9,7 @@ import {
 
 @Component({
   selector: "ngx-voyage-pdf",
+  standalone: true,
   template: ` <iframe #iframe width="1024px"></iframe> `,
   styles: `
     iframe {
