@@ -13,6 +13,7 @@ import { SideNavComponent, SideNavLink } from "../sidenav.component";
 
 @Component({
   selector: "app-reference",
+  standalone: true,
   imports: [NgxVoyageComponent, SideNavComponent],
   templateUrl: "./ref.component.html",
 })

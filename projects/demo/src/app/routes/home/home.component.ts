@@ -1,4 +1,4 @@
-import { Component, linkedSignal, model } from "@angular/core";
+import { Component, model, signal } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { ButtonModule } from "primeng/button";
 import {
@@ -12,12 +12,13 @@ import { filesContentMock, filesMock } from "../../mocks/files.mock";
 
 @Component({
   selector: "app-home",
+  standalone: true,
   templateUrl: "./home.component.html",
   imports: [NgxVoyageComponent, ButtonModule, RouterLink, VoyageIconComponent],
 })
 export class HomeComponent {
   path = model("/home/ngx-voyage");
-  files = linkedSignal(() => filesMock[this.path()]);
+  files = signal(filesMock[this.path()]);
 
   preview({ path, cb }: FilePreviewOutput) {
     if (path.endsWith("light.png")) {

@@ -9,6 +9,7 @@ import { SideNavComponent } from "../sidenav.component";
 
 @Component({
   selector: "app-guide",
+  standalone: true,
   templateUrl: "./guide.component.html",
   imports: [SideNavComponent],
 })

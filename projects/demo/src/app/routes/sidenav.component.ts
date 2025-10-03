@@ -9,6 +9,7 @@ export interface SideNavLink {
 
 @Component({
   selector: "app-sidenav",
+  standalone: true,
   imports: [NgClass],
   template: `
     <ul class="text-blue-500 ml-8 whitespace-nowrap">

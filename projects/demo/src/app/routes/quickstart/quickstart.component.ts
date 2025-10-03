@@ -5,6 +5,7 @@ import typescript from "highlight.js/lib/languages/typescript";
 
 @Component({
   selector: "app-quickstart",
+  standalone: true,
   imports: [],
   templateUrl: "./quickstart.component.html",
 })

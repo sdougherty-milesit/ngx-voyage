@@ -19,6 +19,7 @@ type Theme = "aura" | "lara" | "nora" | "material";
 
 @Component({
   selector: "app-theming",
+  standalone: true,
   templateUrl: "./theming.component.html",
   imports: [
     NgxVoyageComponent,

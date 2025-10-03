@@ -1,13 +1,14 @@
 import { Component, model } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
+import { VoyageIconComponent } from "ngx-voyage";
 import { ButtonModule } from "primeng/button";
 import { DrawerModule } from "primeng/drawer";
 import { routes } from "./app.routes";
 import { NavComponent } from "./nav.component";
-import { VoyageIconComponent } from "ngx-voyage";
 
 @Component({
   selector: "app-root",
+  standalone: true,
   imports: [
     RouterOutlet,
     NavComponent,

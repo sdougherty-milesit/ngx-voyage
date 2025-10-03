@@ -5,6 +5,7 @@ import { routes } from "./app.routes";
 
 @Component({
   selector: "app-nav",
+  standalone: true,
   imports: [RouterLink, RouterLinkActive, VoyageIconComponent],
   template: `
     <nav class="flex flex-col gap-3  px-5 h-full">
